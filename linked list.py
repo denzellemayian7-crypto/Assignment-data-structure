@@ -1,10 +1,33 @@
-1.4 Linked List
-Applications:
-•	Music playlist management
-•	Dynamic memory allocation
+d. Linked List (Linear)
+code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-                    Reasons:
-•	Dynamic size (no fixed memory)
-•	Easy insertion and delete
+    def insert(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = new_node
 
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+ll = LinkedList()
+ll.insert(10)
+ll.insert(20)
+ll.insert(30)
+ll.display()
